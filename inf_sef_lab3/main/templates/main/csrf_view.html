@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if massage %}
+Данные успешно оброботаны
+{{ massage }}
+{% endif %}
+<form action="{% url 'main:csrf_view' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Отправить</button>
+</form>
+</body>
+</html>
