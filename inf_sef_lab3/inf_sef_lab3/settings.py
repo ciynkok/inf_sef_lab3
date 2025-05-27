@@ -53,8 +53,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://example.ru",
-    "http://sub.example.ru",
+    # "http://localhost:8000",
 ]
 
 CORS_ALLOWED_METHODS = [

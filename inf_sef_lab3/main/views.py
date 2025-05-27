@@ -46,3 +46,7 @@ def escape_view(request):
         context = {'user_input': safe_input}
         return render(request, 'main/escape_template.html', context)
     return render(request, 'main/escape_template.html')
+
+
+def cors_example(request):
+    return render(request, 'main/cors_example.html')
