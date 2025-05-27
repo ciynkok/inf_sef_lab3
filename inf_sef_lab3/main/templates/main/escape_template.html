@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape</title>
+
+    <script>
+        const currentDomain = window.location.origin;
+        alert(currentDomain);
+        fetch('https://111.1.1.1:8000', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        },})
+        .then(response=> {
+        if (response.ok) {
+        alert('Запрос успешно выполнен с домена:', currentDomain);
+        } else {
+        alert('Запрос заблокирован политикой CORS для домена:', currentDomain);
+        }
+        })
+<!--        .catch(error=> {-->
+<!--        alert('Ошибка при выполнении запроса с домена:', currentDomain);}-->
+<!--        });-->
+    </script>
+</head>
+<body>
+{% if user_input %}
+{{ user_input|safe }}
+{% endif %}
+<form action="{% url 'main:escape_view' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="user_input">
+    <button type="submit">Отправить</button>
+</form>
+</body>
+</html>
